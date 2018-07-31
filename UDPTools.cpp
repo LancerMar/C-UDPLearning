@@ -82,8 +82,8 @@ DWORD WINAPI UDPServerStart(LPVOID lpParameter)
 
 		if (reader.parse(RecvBuf, root))
 		{
-			tt.u32InitState = root["u32InitState"].asInt();
-			tt.u16PackHead = root["u16PackHead"].asInt();
+			tt.u32test = root["u32test"].asInt();
+			tt.u16test = root["u16test"].asInt();
 		}
 
 		

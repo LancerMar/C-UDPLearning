@@ -4,8 +4,8 @@
 
 struct test1
 {
-	UINT16 u16PackHead;
-	UINT32  u32InitState;
+	UINT16 u16test;
+	UINT32  u32test;
 };
 
 struct IPconfig
