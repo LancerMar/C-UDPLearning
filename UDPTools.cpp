@@ -100,17 +100,17 @@ DWORD WINAPI UDPServerStart(LPVOID lpParameter)
 
 
 		//发送数据
-		char sendMsg[1024] = "already Deal with Data :";
-		strcat_s(sendMsg, RecvBuf);
+		//char sendMsg[1024] = "already Deal with Data :";
+		//strcat_s(sendMsg, RecvBuf);
 
 
-		sendto(RecvSocet, sendMsg, sizeof(sendMsg), 0, (SOCKADDR *)&SenderAddr, SenderAddrSize);
+		//sendto(RecvSocet, sendMsg, sizeof(sendMsg), 0, (SOCKADDR *)&SenderAddr, SenderAddrSize);
 
-		cout << "SendingMsg: " << sendMsg << endl;
+		//cout << "SendingMsg: " << sendMsg << endl;
 
-		end = clock();
-		//时间计算，cpu时间转现实时间
-		cout << (float)(end - start) / CLOCKS_PER_SEC * 1000.0 << "ms" << endl;
+		//end = clock();
+		////时间计算，cpu时间转现实时间
+		//cout << (float)(end - start) / CLOCKS_PER_SEC * 1000.0 << "ms" << endl;
 	}
 
 	closesocket(RecvSocet);

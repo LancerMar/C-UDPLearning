@@ -20,13 +20,11 @@ int main()
 
 	IPconfig ipcnfig1;
 	strcpy(ipcnfig1.ip, "127.0.0.1");
-	ipcnfig1.port = 9091;
+	ipcnfig1.port = 4001;
 
 
 
 	HANDLE thread = CreateThread(NULL, 0, UDPServerStart, &ipcnfig1, 0, NULL);
-
-
 	//πÿ±’œﬂ≥Ã
 	CloseHandle(thread);
 
