@@ -54,17 +54,24 @@ DWORD WINAPI UDPServerStart(LPVOID lpParameter)
 
 
 	bind(RecvSocet, (SOCKADDR *)&RecvAddr, sizeof(RecvAddr));
+	test1* t;
 
+	//LPVOID t;
 	//有键盘输入时退出
 	/*while (_kbhit())*/
 	while (true)
 	{
 		
+
 		cout << "Receiving Data..." << endl;
 		countChar = recvfrom(RecvSocet, RecvBuf, BUFLEN, 0, (SOCKADDR *)&SenderAddr, &SenderAddrSize);
 
 		cout << "Finish receiving Data: " << RecvBuf << endl;
 
+		//结构体指针，对多样化数据的处理
+		t = (test1*)RecvBuf;
+
+		cout<<t->u16test<<endl;
 
 		clock_t start, end;
 		start = clock();
@@ -86,7 +93,8 @@ DWORD WINAPI UDPServerStart(LPVOID lpParameter)
 			tt.u16test = root["u16test"].asInt();
 		}
 
-		
+		cout << "u32test: " << tt.u32test << endl;
+		cout << "u16test: " << tt.u16test << endl;
 
 		//todo:处理数据
 
