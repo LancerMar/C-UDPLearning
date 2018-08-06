@@ -8,6 +8,7 @@
 #include "iostream"
 #include<beans.cpp>
 #include "json.h"
+//#include "interpretationBean.cpp"
 
 
 //全局，定义缓冲区大小
@@ -22,11 +23,17 @@ using namespace std;
 
 
 
+struct test 
+{
+	UINT64  u64SendPos;
+};
+
 DWORD WINAPI UDPServerStart(LPVOID lpParameter)
 {
 
 	IPconfig* pThreadData = (IPconfig*)lpParameter;
 	cout << "IP: " << pThreadData->ip << endl;
+	cout << "PORT: " << pThreadData->port << endl;
 
 	int port = pThreadData->port;
 
@@ -68,33 +75,39 @@ DWORD WINAPI UDPServerStart(LPVOID lpParameter)
 
 		cout << "Finish receiving Data: " << RecvBuf << endl;
 
-		//结构体指针，对多样化数据的处理
-		t = (test1*)RecvBuf;
+		test* t;
+		t = (test*)RecvBuf;
 
-		cout<<t->u16test<<endl;
+		cout<<"u16PackType: "<<t->u64SendPos<<endl;
+		//cout << "u64SendPos: " << t-> << endl;
 
-		clock_t start, end;
-		start = clock();
-		test1 tt;
-		
-		//todo:处理数据
+		////结构体指针，对多样化数据的处理
+		//t = (test1*)RecvBuf;
 
-		
-		Json::Reader reader;
-		/*Json::CharReaderBuilder b;
-		Json::CharReader* reader(b.newCharReader());*/
-		Json::Value root;
+		//cout<<t->u16test<<endl;
+
+		//clock_t start, end;
+		//start = clock();
+		//test1 tt;
+		//
+		////todo:处理数据
+
+		//
+		//Json::Reader reader;
+		///*Json::CharReaderBuilder b;
+		//Json::CharReader* reader(b.newCharReader());*/
+		//Json::Value root;
 
 
 
-		if (reader.parse(RecvBuf, root))
-		{
-			tt.u32test = root["u32test"].asInt();
-			tt.u16test = root["u16test"].asInt();
-		}
+		//if (reader.parse(RecvBuf, root))
+		//{
+		//	tt.u32test = root["u32test"].asInt();
+		//	tt.u16test = root["u16test"].asInt();
+		//}
 
-		cout << "u32test: " << tt.u32test << endl;
-		cout << "u16test: " << tt.u16test << endl;
+		//cout << "u32test: " << tt.u32test << endl;
+		//cout << "u16test: " << tt.u16test << endl;
 
 		//todo:处理数据
 

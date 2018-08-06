@@ -2,6 +2,11 @@
 #include <windows.h>
 #include<UDPTools.h>
 #include<beans.cpp>
+#include "tools.h"
+
+
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -15,8 +20,31 @@ DWORD WINAPI ThreadProc(LPVOID lpParameter)
 	return 0L;
 }
 
+struct student
+{
+	char name[20];
+	int num;
+	int age;
+	char sex;
+};
+
 int main()
 {
+	//DatRead();
+	//DateWrite();
+	////文件的读写
+	//TextWrite();
+
+	//cout << "文件写入成功" << endl;
+	//TextRead();
+
+	//cout << "读取文件成功" << endl;
+
+	//
+
+	//system("pause");
+
+
 
 	IPconfig ipcnfig1;
 	strcpy(ipcnfig1.ip, "127.0.0.1");
